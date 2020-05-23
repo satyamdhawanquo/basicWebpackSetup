@@ -12,7 +12,7 @@ module.exports = (env) => {
     devServer: {
       contentBase: "./public",
     },
-    devtool:  "source-map" ,
+    devtool: "source-map",
     module: {
       rules: [
         {
@@ -21,6 +21,13 @@ module.exports = (env) => {
         },
         {
           test: /\.m?js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            loader: "babel-loader",
+          },
+        },
+        {
+          test: /\.m?jsx$/,
           exclude: /(node_modules|bower_components)/,
           use: {
             loader: "babel-loader",
